@@ -131,12 +131,12 @@ $('#cascade-slider').cascadeSlider();
 ```
 
 You can change the default CSS selectors by passing the following options during initialization.
-
+Multiple usage is possible.
 ```
-$('#cascade-slider').cascadeSlider({
-  itemClass: 'cascade-slider_item',
-  arrowClass: 'cascade-slider_arrow'
+$('#cascade-slider2').cascadeSlider({
+  itemClass: 'cascade-slider_item2',
+  arrowClass: 'cascade-slider_arrow2',
+  dotClass: 'cascade-slider_dot2',
+  slidesClass: 'cascade-slider_slides2'
 });
-```
-
 
