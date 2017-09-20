@@ -3,6 +3,8 @@
     var $this = this,
       itemClass = opt.itemClass || 'cascade-slider_item',
       arrowClass = opt.arrowClass || 'cascade-slider_arrow',
+      dotClass =  opt.dotClass ? '.' + opt.dotClass : '.cascade-slider_dot',
+      slidesClass =  opt.slidesClass ? '.' + opt.slidesClass : '.cascade-slider_slides',
       $item = $this.find('.' + itemClass),
       $arrow = $this.find('.' + arrowClass),
       itemCount = $item.length;
@@ -13,54 +15,44 @@
 
     $arrow.on('click', function() {
       var action = $(this).data('action'),
-        nowIndex = $item.index($this.find('.now'));
+        nowIndex = $item.index($this.find('.now')),
+          newIndex;
 
       if(action == 'next') {
         if(nowIndex == itemCount - 1) {
-          changeIndex(0);
+          newIndex = 0;
         } else {
-          changeIndex(nowIndex + 1);
+          newIndex = nowIndex + 1;
         }
       } else if (action == 'prev') {
         if(nowIndex == 0) {
-          changeIndex(itemCount - 1);
+          newIndex = itemCount - 1;
         } else {
-          changeIndex(nowIndex - 1);
+          newIndex = nowIndex - 1;
         }
       }
+      changeIndex(newIndex);
 
-      $('.cascade-slider_dot').removeClass('cur');
-      //$('.cascade-slider_dot').next().addClass('cur');
+      $(dotClass).removeClass('cur');
+      var activeDot = $(dotClass).parent().find('[data-dot-number=' + (newIndex+1) + ']');
+      $(activeDot).addClass('cur');
     });
     
     // add data attributes
     for (var i = 0; i < itemCount; i++) {
-      $('.cascade-slider_item').each(function(i) {
+      $(itemClass).each(function(i) {
         $(this).attr('data-slide-number', [i]);
       });
     }
     
     // dots
-    $('.cascade-slider_dot').bind('click', function(){
+    $(dotClass).bind('click', function(){
       // add class to current dot on click
-      $('.cascade-slider_dot').removeClass('cur');
+      $(dotClass).removeClass('cur');
       $(this).addClass('cur');
 
       var index = $(this).index();
-
-      $('.cascade-slider_item').removeClass('now prev next');
-      var slide = $('.cascade-slider_slides').find('[data-slide-number=' + index + ']');
-      slide.prev().addClass('prev');
-      slide.addClass('now');
-      slide.next().addClass('next');
-
-      if(slide.next().length == 0) {
-        $('.cascade-slider_item:first-child').addClass('next');
-      }
-
-      if(slide.prev().length == 0) {
-        $('.cascade-slider_item:last-child').addClass('prev');
-      }
+      changeIndex(index);
     });
 
     function changeIndex(nowIndex) {

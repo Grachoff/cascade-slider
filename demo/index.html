@@ -12,43 +12,87 @@
     <h1>Cascade Slider Demo</h1>
     <div class="cascade-slider_container" id="cascade-slider">
       <div class="cascade-slider_slides">
-        <div class="cascade-slider_item">
+        <div class="cascade-slider_item" data-slide-number=1>
           <h3>Pic 1</h3>
           <img src="1.jpg" alt="">
         </div>
-        <div class="cascade-slider_item">
+        <div class="cascade-slider_item" data-slide-number=2>
           <h3>Pic 2</h3>
           <img src="2.jpg" alt="">
         </div>
-        <div class="cascade-slider_item">
+        <div class="cascade-slider_item" data-slide-number=3>
           <h3>Pic 3</h3>
           <img src="3.jpg" alt="">
         </div>
-        <div class="cascade-slider_item">
+        <div class="cascade-slider_item" data-slide-number=4>
           <h3>Pic 4</h3>
           <img src="4.jpg" alt="">
         </div>
-        <div class="cascade-slider_item">
+        <div class="cascade-slider_item" data-slide-number=5>
           <h3>Pic 5</h3>
           <img src="5.jpg" alt="">
         </div>
-        <div class="cascade-slider_item">
+        <div class="cascade-slider_item" data-slide-number=6>
           <h3>Pic 6</h3>
           <img src="6.jpg" alt="">
         </div>
       </div>
 
       <ol class="cascade-slider_nav">
-        <li class="cascade-slider_dot cur"></li>
-        <li class="cascade-slider_dot"></li>
-        <li class="cascade-slider_dot"></li>
-        <li class="cascade-slider_dot"></li>
-        <li class="cascade-slider_dot"></li>
-        <li class="cascade-slider_dot"></li>
+        <li class="cascade-slider_dot cur" data-dot-number=1></li>
+        <li class="cascade-slider_dot" data-dot-number=2></li>
+        <li class="cascade-slider_dot" data-dot-number=3></li>
+        <li class="cascade-slider_dot" data-dot-number=4></li>
+        <li class="cascade-slider_dot" data-dot-number=5></li>
+        <li class="cascade-slider_dot" data-dot-number=6></li>
       </ol>
 
       <span class="cascade-slider_arrow cascade-slider_arrow-left" data-action="prev">Prev</span>
       <span class="cascade-slider_arrow cascade-slider_arrow-right" data-action="next">Next</span>
+    </div>
+  </section>
+
+  <section>
+    <h1>Cascade Slider Demo, 2nd</h1>
+    <div class="cascade-slider_container" id="cascade-slider2">
+      <div class="cascade-slider_slides2">
+        <div class="cascade-slider_item2" data-slide-number=1>
+          <h3>Pic 1</h3>
+          <img src="1.jpg" alt="">
+        </div>
+        <div class="cascade-slider_item2" data-slide-number=2>
+          <h3>Pic 2</h3>
+          <img src="2.jpg" alt="">
+        </div>
+        <div class="cascade-slider_item2" data-slide-number=3>
+          <h3>Pic 3</h3>
+          <img src="3.jpg" alt="">
+        </div>
+        <div class="cascade-slider_item2" data-slide-number=4>
+          <h3>Pic 4</h3>
+          <img src="4.jpg" alt="">
+        </div>
+        <div class="cascade-slider_item2" data-slide-number=5>
+          <h3>Pic 5</h3>
+          <img src="5.jpg" alt="">
+        </div>
+        <div class="cascade-slider_item2" data-slide-number=6>
+          <h3>Pic 6</h3>
+          <img src="6.jpg" alt="">
+        </div>
+      </div>
+
+      <ol class="cascade-slider_nav2">
+        <li class="cascade-slider_dot2 cur" data-dot-number=1></li>
+        <li class="cascade-slider_dot2" data-dot-number=2></li>
+        <li class="cascade-slider_dot2" data-dot-number=3></li>
+        <li class="cascade-slider_dot2" data-dot-number=4></li>
+        <li class="cascade-slider_dot2" data-dot-number=5></li>
+        <li class="cascade-slider_dot2" data-dot-number=6></li>
+      </ol>
+
+      <span class="cascade-slider_arrow2 cascade-slider_arrow-left2" data-action="prev">Prev</span>
+      <span class="cascade-slider_arrow2 cascade-slider_arrow-right2" data-action="next">Next</span>
     </div>
   </section>
 
@@ -58,6 +102,13 @@
   <script>
     $('#cascade-slider').cascadeSlider({
       
+    });
+    $('#cascade-slider2').cascadeSlider({
+      suffix: '2',
+      itemClass: 'cascade-slider_item2',
+      arrowClass: 'cascade-slider_arrow2',
+      dotClass: 'cascade-slider_dot2',
+      slidesClass: 'cascade-slider_slides2'
     });
   </script>
 
